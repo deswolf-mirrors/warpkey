@@ -17,7 +17,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
         env:
           NODE_VERSION: '20'
 
@@ -31,15 +31,15 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --global user.email "ircfspace@gmail.com"
-          git config --global user.name "ircfspace"
+          git config --global user.email "dw@noop.okcom"
+          git config --global user.name "__dw"
 
       - name: Commit changes
         run: |
           git add -A
-          git diff --cached --quiet || git commit -m "💡 Automatic update - $(TZ='Asia/Tehran' date '+%Y-%m-%d %H:%M')"
+          git diff --cached --quiet || git commit -m "💡 Automatic update - $(TZ='Europe/London' date '+%Y-%m-%d %H:%M')"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}
